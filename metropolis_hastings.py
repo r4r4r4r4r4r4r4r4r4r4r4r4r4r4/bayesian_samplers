@@ -3,16 +3,16 @@ import matplotlib.pyplot as plt
 
 
 def f(x):
-    #define a beta(5,5) prior
-    #gamma functions drop out - constants
-    return (x**(4)) * ((1-x)**4)
+    mu = 3
+    sigma = 1
+    return (1/sigma*np.sqrt(2*np.pi) * np.exp((-1/2) * ((x-mu)/sigma)**2))
 
 def main():
     N=10000 #10000 samples
 
     #assume normal proposal likelihood N(theta_dash, s^2)
     theta_dash = 0.5 #mean
-    s = 0.007 #step size
+    s = 0.1 #step size
 
     #initialise thetas
     thetas = np.zeros(shape=N)
